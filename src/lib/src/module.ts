@@ -1,11 +1,3 @@
-import { NgModule } from '@angular/core';
-
-import { LibComponent } from './component/lib.component';
-import { LibService } from './service/lib.service';
-
-@NgModule({
-  declarations: [LibComponent],
-  providers: [LibService],
-  exports: [LibComponent]
-})
-export class LibModule { }
+export * from './types/types';
+export * from './wrappers/wrappers';
+export { FormlyCustomModule } from './formly-custom.module';

@@ -1,0 +1,43 @@
+<div class="container-fluid">
+
+	<div class="mt-3 mb-3">
+	  <ngb-tabset #langTabs="ngbTabset"
+	              *ngIf="languages"
+	              (tabChange)="onChangeLang($event)"
+	              [activeId]="selectedLang">
+	    <ngb-tab *ngFor="let lang of languages" [id]="lang.code">
+	      <ng-template ngbTabTitle>{{ lang.label }}</ng-template>
+	      <ng-template ngbTabContent></ng-template>
+	    </ngb-tab>
+	  </ngb-tabset>
+	</div>
+
+	<!-- <form class="formly" role="form" novalidate [formGroup]="form" (ngSubmit)="submit(model)"> -->
+		<formly-form #formly [form]="form" [fields]="fields" [model]="model" >
+		</formly-form>
+	<!-- </form> -->
+
+	<button class="btn btn-sm btn-secondary" (click)="submit(model, form, fields)">Submit</button>
+
+  Form valid: {{ form.valid }}
+  <div class="row">
+
+
+    <div class="col">
+      <div class="card mt-3" style="font-size: 10px;">
+        <div class="card-block p-1">
+          <pre class="mb-0">{{ model | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card mt-3" style="font-size: 10px;">
+        <div class="card-block p-1">
+          <pre class="mb-0">{{ form.value | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
